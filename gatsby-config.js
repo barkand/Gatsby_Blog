@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://barkand.github.io/RiskLab_Gatsby`,
+    siteUrl: `https://RiskLab.ai`,
     title: "RiskLab AI",
   },
   pathPrefix: "/RiskLab_Gatsby",
