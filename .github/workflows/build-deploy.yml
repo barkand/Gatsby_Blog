@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "client/**"
   pull_request:
 
 jobs:
@@ -15,9 +13,6 @@ jobs:
       contents: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
-    defaults:
-      run:
-        working-directory: client
     steps:
       - uses: actions/checkout@v3
 
@@ -30,10 +25,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-client-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-client-node-
+            ${{ runner.os }}-node-
       - run: npm ci
+      - run: npm run format
+      - run: npm run test
       - run: npm run build
 
       - name: Deploy
@@ -41,4 +38,4 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./client/build
+          publish_dir: ./public
