@@ -21,10 +21,7 @@ export const PublicProvider = ({ children }) => {
 const FillDefaulePublic = () => {
   let Default = { ...DefaultPublic };
 
-  Default.device =
-    "ontouchstart" in window || "onmsgesturechange" in window
-      ? "mobile"
-      : "web";
+  Default.device = typeof window !== "undefined" ? "web" : "mobile";
 
   Default.theme = {
     mode: process.env.REACT_APP_THEM_MODE,
