@@ -1,9 +1,13 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://RiskLab.ai`,
     title: "RiskLab AI",
   },
-  pathPrefix: process.env.REACT_APP_PATH_PREFIX,
+  pathPrefix: process.env.GATSBY_PATH_PREFIX,
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
