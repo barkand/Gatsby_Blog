@@ -24,24 +24,24 @@ const FillDefaulePublic = () => {
   Default.device = typeof window !== "undefined" ? "web" : "mobile";
 
   Default.theme = {
-    mode: process.env.REACT_APP_THEM_MODE,
-    color: process.env.REACT_APP_THEM_COLOR,
+    mode: process.env.GATSBY_THEM_MODE,
+    color: process.env.GATSBY_THEM_COLOR,
     primary: {
       main: SetColor(
-        process.env.REACT_APP_THEM_MODE,
-        process.env.REACT_APP_THEM_COLOR,
+        process.env.GATSBY_THEM_MODE,
+        process.env.GATSBY_THEM_COLOR,
         "Primary"
       ),
     },
     secondary: {
       main: SetColor(
-        process.env.REACT_APP_THEM_MODE,
-        process.env.REACT_APP_THEM_COLOR,
+        process.env.GATSBY_THEM_MODE,
+        process.env.GATSBY_THEM_COLOR,
         "Secondary"
       ),
     },
     background: {
-      default: SetBackColor(process.env.REACT_APP_THEM_MODE),
+      default: SetBackColor(process.env.GATSBY_THEM_MODE),
     },
   };
 

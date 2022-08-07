@@ -5,7 +5,7 @@ export default function Title() {
   return (
     <>
       <Typography variant="subtitle1" component="div">
-        {process.env.REACT_APP_COMPANY_NAME}
+        {process.env.GATSBY_COMPANY_NAME}
       </Typography>
     </>
   );

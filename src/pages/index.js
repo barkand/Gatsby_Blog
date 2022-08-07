@@ -36,7 +36,7 @@ function CardPage({ node }) {
 
 const BlogPage = ({ data }) => {
   return (
-    <Layout title={process.env.REACT_APP_COMPANY_NAME}>
+    <Layout title={process.env.GATSBY_COMPANY_NAME}>
       <Grid container spacing={2}>
         {data.allMdx.nodes.map((node) => (
           <Grid item xs={12} md={6} lg={4} key={node.id}>

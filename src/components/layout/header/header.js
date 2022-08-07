@@ -8,13 +8,13 @@ import HideHeader from "./type/hideHeader";
 export default function Header() {
   return (
     <header>
-      {process.env.REACT_APP_HEADER_TYPE === "STATIC" ? (
+      {process.env.GATSBY_HEADER_TYPE === "STATIC" ? (
         <StaticHeader />
-      ) : process.env.REACT_APP_HEADER_TYPE === "FIXED" ? (
+      ) : process.env.GATSBY_HEADER_TYPE === "FIXED" ? (
         <FixedHeader />
-      ) : process.env.REACT_APP_HEADER_TYPE === "HIDE" ? (
+      ) : process.env.GATSBY_HEADER_TYPE === "HIDE" ? (
         <HideHeader />
-      ) : process.env.REACT_APP_HEADER_TYPE === "ELEVATE" ? (
+      ) : process.env.GATSBY_HEADER_TYPE === "ELEVATE" ? (
         <ElevateHeader />
       ) : (
         <></>

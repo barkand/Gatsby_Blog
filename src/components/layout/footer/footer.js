@@ -17,8 +17,7 @@ export default function Footer() {
         sx={{ color: "text.primary", paddingTop: "15px", fontSize: ".8rem" }}
       >
         <CopyrightIcon sx={{ mr: 0.3, fontSize: 14 }} />
-        {process.env.REACT_APP_COPY_RIGHT_YEAR}{" "}
-        {process.env.REACT_APP_COMPANY_NAME}
+        {process.env.GATSBY_COPY_RIGHT_YEAR} {process.env.GATSBY_COMPANY_NAME}
       </Stack>
       <Stack
         direction="row"
@@ -34,7 +33,7 @@ export default function Footer() {
             sx={{ cursor: "pointer", fontSize: "20px" }}
             onClick={() =>
               window.open(
-                `https://twitter.com/${process.env.REACT_APP_TWITTER_ID}`,
+                `https://twitter.com/${process.env.GATSBY_TWITTER_ID}`,
                 "_blank"
               )
             }
@@ -43,7 +42,7 @@ export default function Footer() {
             sx={{ cursor: "pointer", fontSize: "20px", mx: 2 }}
             onClick={() =>
               window.open(
-                `https://t.me/${process.env.REACT_APP_TELEGRAM_ID}`,
+                `https://t.me/${process.env.GATSBY_TELEGRAM_ID}`,
                 "_blank"
               )
             }
@@ -52,7 +51,7 @@ export default function Footer() {
             sx={{ cursor: "pointer", fontSize: "20px" }}
             onClick={() =>
               window.open(
-                `https://www.linkedin.com/${process.env.REACT_APP_LINKEDIN_ID}`,
+                `https://www.linkedin.com/${process.env.GATSBY_LINKEDIN_ID}`,
                 "_blank"
               )
             }
