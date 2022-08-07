@@ -5,28 +5,28 @@ import { Card, CardContent, CardActionArea, Typography } from "@mui/material";
 
 import Layout from "../components/layout";
 
-// export function cardPage({ node }) {
-//   return (
-//       <Card sx={{ Width: 503 }} key={node.id}>
-//         <CardActionArea>
-//           <Link to={`/${node.slug}`}>
-//             <GatsbyImage
-//               image={getImage(node.frontmatter.page_image)}
-//               alt={node.frontmatter.page_image_alt}
-//             />
-//             <CardContent>
-//               <Typography gutterBottom variant="h5" component="div">
-//                 {node.frontmatter.title}
-//               </Typography>
-//               <Typography variant="body2" color="text.secondary">
-//                 {node.frontmatter.page_image_desc}
-//               </Typography>
-//             </CardContent>
-//           </Link>
-//         </CardActionArea>
-//       </Card>
-//   )
-// }
+function CardPage({ node }) {
+  return (
+    <Card sx={{ Width: 503 }} key={node.id}>
+      <CardActionArea>
+        <Link to={`/${node.slug}`}>
+          <GatsbyImage
+            image={getImage(node.frontmatter.page_image)}
+            alt={node.frontmatter.page_image_alt}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {node.frontmatter.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {node.frontmatter.page_image_desc}
+            </Typography>
+          </CardContent>
+        </Link>
+      </CardActionArea>
+    </Card>
+  );
+}
 
 const BlogPage = ({ data }) => {
   return (
@@ -34,24 +34,7 @@ const BlogPage = ({ data }) => {
       <title>{process.env.REACT_APP_COMPANY_NAME}</title>
 
       {data.allMdx.nodes.map((node) => (
-        <Card sx={{ Width: 503 }} key={node.id}>
-          <CardActionArea>
-            <Link to={`/${node.slug}`}>
-              <GatsbyImage
-                image={getImage(node.frontmatter.page_image)}
-                alt={node.frontmatter.page_image_alt}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {node.frontmatter.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {node.frontmatter.page_image_desc}
-                </Typography>
-              </CardContent>
-            </Link>
-          </CardActionArea>
-        </Card>
+        <CardPage node={node} />
       ))}
     </Layout>
   );
