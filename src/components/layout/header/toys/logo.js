@@ -1,15 +1,18 @@
 import React from "react";
+import { Link } from "gatsby";
 
 import logo from "../../../../images/logo.png";
 
 export default function Logo() {
   return (
     <>
-      <img
-        alt="Logo"
-        src={logo}
-        style={{ width: "30px", marginRight: "20px" }}
-      />
+      <Link to={"/"}>
+        <img
+          alt="Logo"
+          src={logo}
+          style={{ width: "30px", marginRight: "20px" }}
+        />
+      </Link>
     </>
   );
 }
