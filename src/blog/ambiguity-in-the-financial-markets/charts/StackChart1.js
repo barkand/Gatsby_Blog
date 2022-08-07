@@ -6,7 +6,7 @@ import { StackChart } from "../../../components/charts";
 const StackChart1 = () => (
   <StaticQuery
     query={graphql`
-      query AllChart {
+      query MyQuery {
         allChart1Csv {
           nodes {
             ...ChartCsvFragment
