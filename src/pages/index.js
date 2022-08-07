@@ -1,7 +1,13 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Card, CardContent, CardActionArea, Typography } from "@mui/material";
+import {
+  Grid,
+  Card,
+  CardContent,
+  CardActionArea,
+  Typography,
+} from "@mui/material";
 
 import Layout from "../components/layout";
 
@@ -30,12 +36,14 @@ function CardPage({ node }) {
 
 const BlogPage = ({ data }) => {
   return (
-    <Layout>
-      <title>{process.env.REACT_APP_COMPANY_NAME}</title>
-
-      {data.allMdx.nodes.map((node) => (
-        <CardPage node={node} />
-      ))}
+    <Layout title={process.env.REACT_APP_COMPANY_NAME}>
+      <Grid container spacing={2}>
+        {data.allMdx.nodes.map((node) => (
+          <Grid item xs={12} md={6} lg={4} key={node.id}>
+            <CardPage node={node} />
+          </Grid>
+        ))}
+      </Grid>
     </Layout>
   );
 };

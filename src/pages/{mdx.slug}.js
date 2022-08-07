@@ -9,13 +9,16 @@ const BlogPost = ({ data }) => {
   const { frontmatter, body } = mdx;
 
   return (
-    <Layout>
-      <title>{frontmatter.title}</title>
-      <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.date}</p>
-      <MDXRenderer localImages={frontmatter.embeddedImagesLocal}>
-        {body}
-      </MDXRenderer>
+    <Layout title={frontmatter.title}>
+      <div
+        style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}
+      >
+        <h1>{frontmatter.title}</h1>
+        <p>{frontmatter.date}</p>
+        <MDXRenderer localImages={frontmatter.embeddedImagesLocal}>
+          {body}
+        </MDXRenderer>
+      </div>
     </Layout>
   );
 };

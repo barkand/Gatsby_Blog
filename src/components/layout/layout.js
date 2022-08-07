@@ -7,17 +7,16 @@ import Footer from "./footer";
 import ScrollTopButton from "./toys/scrollTop";
 import { container } from "./layout.module.css";
 
-const Layout = ({ children }) => {
+const Layout = ({ title, children }) => {
   return (
     <>
+      <title>{title}</title>
       <PublicProvider>
         <Theme>
-          <Header/>
+          <Header />
           <ScrollTopButton>
             <main>
-              <div className={container}>
-                {children}
-               </div>
+              <div className={container}>{children}</div>
             </main>
           </ScrollTopButton>
           <Footer />
