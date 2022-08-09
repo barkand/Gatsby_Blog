@@ -7,7 +7,7 @@ module.exports = {
     siteUrl: `https://RiskLab.ai`,
     title: "RiskLab AI",
   },
-  pathPrefix: process.env.GATSBY_PATH_PREFIX,
+  pathPrefix: "/RiskLab_Gatsby",
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
