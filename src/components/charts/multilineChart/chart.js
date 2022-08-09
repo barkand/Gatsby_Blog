@@ -5,6 +5,7 @@ import FetchCsv from "./fetchCsv";
 export default function Chart({
   data = [],
   size = { width: 600, height: 300 },
+  dotted = false,
 }) {
   const [dataChart, setDataChart] = React.useState([]);
   const svgRef = React.useRef(null);
@@ -24,13 +25,16 @@ export default function Chart({
     // eslint-disable-next-line
   }, [data]);
 
-  var margin = { top: 30, right: 20, bottom: 30, left: 20 };
+  var margin = { top: 30, right: 20, bottom: 30, left: 25 };
 
-  var lineOpacity = "0.4";
-  var lineOpacityHover = "0.9";
-  var otherLinesOpacityHover = "0.2";
-  var lineStroke = "2px";
-  var lineStrokeHover = "3px";
+  var lineOpacity = "0.25";
+  var lineOpacityHover = "0.85";
+  var otherLinesOpacityHover = "0.1";
+  var lineStroke = "1.5px";
+  var lineStrokeHover = "2.5px";
+
+  var circleOpacity = "0.85";
+  var circleOpacityOnLineHover = "0.25";
 
   const svgWidth = size.width + margin.left + margin.right;
   const svgHeight = size.height + margin.top + margin.bottom;
@@ -50,8 +54,8 @@ export default function Chart({
             max: Math.max(key.max, d.x),
           };
           val = {
-            min: Math.min(val.min, d.y1),
-            max: Math.max(val.max, d.y1),
+            min: Math.min(val.min, d.y),
+            max: Math.max(val.max, d.y),
           };
         });
       });
@@ -77,12 +81,11 @@ export default function Chart({
         .append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-      /* Add area into SVG */
-      var area = d3
-        .area()
+      /* Add line into SVG */
+      var line = d3
+        .line()
         .x((d) => xScale(d.x))
-        .y0((d) => yScale(d.y0))
-        .y1((d) => yScale(d.y1));
+        .y((d) => yScale(d.y));
 
       let lines = svg.append("g").attr("class", "lines");
 
@@ -110,16 +113,17 @@ export default function Chart({
           svg.select(".title-text").remove();
         })
 
-        /* area */
+        /* line */
         .append("path")
-        .attr("class", "area")
-        .attr("d", (d) => area(d.values))
-        .style("stroke", (d, i) => color(i)) //fill
+        .attr("class", "line")
+        .attr("d", (d) => line(d.values))
+        .style("stroke", (d, i) => color(i))
         .style("opacity", lineOpacity)
 
         /* Mouse over */
         .on("mouseover", function (d) {
           d3.selectAll(".line").style("opacity", otherLinesOpacityHover);
+          d3.selectAll(".circle").style("opacity", circleOpacityOnLineHover);
           d3.select(this)
             .style("opacity", lineOpacityHover)
             .style("stroke-width", lineStrokeHover)
@@ -129,10 +133,68 @@ export default function Chart({
         /* Mouse out */
         .on("mouseout", function (d) {
           d3.selectAll(".line").style("opacity", lineOpacity);
+          d3.selectAll(".circle").style("opacity", circleOpacity);
           d3.select(this)
             .style("stroke-width", lineStroke)
             .style("cursor", "none");
         });
+
+      if (dotted === true) {
+        /* Add circles in the line */
+        var duration = 250;
+        var circleRadius = 1;
+        var circleRadiusHover = 3;
+
+        lines
+          .selectAll("circle-group")
+          .data(dataChart)
+          .enter()
+          .append("g")
+          .style("fill", (d, i) => color(i))
+          .selectAll("circle")
+          .data((d) => d.values)
+          .enter()
+          .append("g")
+          .attr("class", "circle")
+
+          /* circle Mouse over */
+          .on("mouseover", function (d) {
+            d3.select(this)
+              .style("cursor", "pointer")
+              .append("text")
+              .attr("class", "text")
+              .text(`${d.y}`)
+              .attr("x", (d) => xScale(d.x) + 5)
+              .attr("y", (d) => yScale(d.y) - 10);
+          })
+
+          /* circle Mouse out */
+          .on("mouseout", function (d) {
+            d3.select(this)
+              .style("cursor", "none")
+              .transition()
+              .duration(duration)
+              .selectAll(".text")
+              .remove();
+          })
+          .append("circle")
+          .attr("cx", (d) => xScale(d.x))
+          .attr("cy", (d) => yScale(d.y))
+          .attr("r", circleRadius)
+          .style("opacity", circleOpacity)
+          .on("mouseover", function (d) {
+            d3.select(this)
+              .transition()
+              .duration(duration)
+              .attr("r", circleRadiusHover);
+          })
+          .on("mouseout", function (d) {
+            d3.select(this)
+              .transition()
+              .duration(duration)
+              .attr("r", circleRadius);
+          });
+      }
 
       /* Add Axis into SVG */
       var xAxis = d3.axisBottom(xScale).ticks(5);
