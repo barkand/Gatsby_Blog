@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 
 export const ChartCsvFragment = graphql`
-  fragment ChartCsvFragment on Chart1Csv {
+  fragment ChartCsvFragment on ChartAmbiguityCsv {
     id
     Ambiguity_1
     Ambiguity_2

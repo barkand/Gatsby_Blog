@@ -3,19 +3,21 @@ import { StaticQuery, graphql } from "gatsby";
 
 import { StackChart } from "../../../components/charts";
 
-const StackChart1 = () => (
+const ChartAmbiguity = () => (
   <StaticQuery
     query={graphql`
       query {
-        allChart1Csv {
+        allChartAmbiguityCsv {
           nodes {
             ...ChartCsvFragment
           }
         }
       }
     `}
-    render={(data) => <StackChart data={[...data.allChart1Csv.nodes]} />}
+    render={(data) => (
+      <StackChart data={[...data.allChartAmbiguityCsv.nodes]} />
+    )}
   />
 );
 
-export default StackChart1;
+export default ChartAmbiguity;
