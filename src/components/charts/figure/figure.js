@@ -7,13 +7,15 @@ const Figure = ({ source, size = 600, caption }) => {
   }
 
   return (
-    <figure
-      style={{
-        width: `${size}px`,
-      }}
-    >
-      <GatsbyImage image={getImage(source)} alt={caption} />
-    </figure>
+    <center>
+      <figure
+        style={{
+          width: `${size}px`,
+        }}
+      >
+        <GatsbyImage image={getImage(source)} alt={caption} />
+      </figure>
+    </center>
   );
 };
 
