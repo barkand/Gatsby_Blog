@@ -16,11 +16,11 @@ embeddedImagesLocal:
   - './images/Risk.jpg'
   - './images/Climate.jpg'
   - './images/Differential.jpg'
-  - './images/Crypto.jpg'
 ---
 
 import { Figure } from "../../components/charts";
-import ChartAmbiguity from "./charts/ambiguity";
+import ChartAmbiguity from "./charts/ambiguity/ambiguity";
+import ChartCrypto from "./charts/crypto/crypto";
 
 ---
 
@@ -202,4 +202,4 @@ are rarely used for retail purchases. However, cryptocurrencies' rising
 value has made them attractive as trading instruments. In a limited
 capacity, they are also used for international transfers.
 
-<Figure source={props.localImages[9]} caption="Cryptocurrencies" />
+<ChartCrypto />
