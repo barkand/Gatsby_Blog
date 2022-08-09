@@ -6,6 +6,7 @@ export default function Chart({
   data = [],
   size = { width: 600, height: 300 },
   dotted = false,
+  isDate = false,
 }) {
   const [dataChart, setDataChart] = React.useState([]);
   const svgRef = React.useRef(null);
@@ -18,14 +19,14 @@ export default function Chart({
 
   React.useEffect(() => {
     if (dataChart.length === 0) {
-      FetchCsv(data).then((jsonData) => {
+      FetchCsv(data, isDate).then((jsonData) => {
         setDataChart(jsonData);
       });
     }
     // eslint-disable-next-line
   }, [data]);
 
-  var margin = { top: 30, right: 20, bottom: 30, left: 25 };
+  var margin = { top: 30, right: 20, bottom: 30, left: 45 };
 
   var lineOpacity = "0.25";
   var lineOpacityHover = "0.85";
@@ -49,22 +50,31 @@ export default function Chart({
       /* Format data */
       dataChart.forEach((d) => {
         d.values.forEach((d) => {
-          key = {
-            min: Math.min(key.min, d.x),
-            max: Math.max(key.max, d.x),
-          };
+          if (isDate) {
+            key = {
+              min: Math.min(key.min, d.x),
+              max: Math.max(key.max, d.x),
+            };
+          }
           val = {
-            min: Math.min(val.min, d.y),
-            max: Math.max(val.max, d.y),
+            min: Math.min(val.min, d.y ?? 0),
+            max: Math.max(val.max, d.y ?? 0),
           };
         });
       });
 
-      /* Scale */
-      var xScale = d3
-        .scaleLinear()
-        .domain([key.min, key.max * 1.2])
-        .range([0, size.width]);
+      var xScale;
+      if (isDate) {
+        xScale = d3
+          .scaleTime()
+          .domain(d3.extent(dataChart[0].values, (d) => d.x))
+          .range([0, size.width]);
+      } else {
+        xScale = d3
+          .scaleLinear()
+          .domain([key.min, key.max * 1.2])
+          .range([0, size.width]);
+      }
 
       var yScale = d3
         .scaleLinear()

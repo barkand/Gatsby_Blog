@@ -1,4 +1,6 @@
-const FetchCsv = async (data) => {
+import * as d3 from "d3";
+
+const FetchCsv = async (data, isDate) => {
   var jsonData = [];
   let columns = Object.keys(data[0]);
 
@@ -9,10 +11,11 @@ const FetchCsv = async (data) => {
     });
   }
 
+  var parseTime = d3.timeParse("%b %d, %Y");
   for (let i = 0; i < data.length; i++) {
     for (let j = 1; j < columns.length; j++) {
       jsonData[j - 1].values.push({
-        x: data[i]["id"],
+        x: isDate ? parseTime(data[i]["id"]) : data[i]["id"],
         y: parseFloat(data[i][columns[j]]),
       });
     }
