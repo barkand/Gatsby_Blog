@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import { StackChart } from "../../../components/charts";
+import { StackChart } from "../../../../components/charts";
 
 const ChartAmbiguity = () => (
   <StaticQuery
@@ -9,7 +9,7 @@ const ChartAmbiguity = () => (
       query {
         allChartAmbiguityCsv {
           nodes {
-            ...ChartCsvFragment
+            ...ChartAmbiguityCsvFragment
           }
         }
       }
