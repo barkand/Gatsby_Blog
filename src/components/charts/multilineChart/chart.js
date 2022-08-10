@@ -50,7 +50,7 @@ export default function Chart({
       /* Format data */
       dataChart.forEach((d) => {
         d.values.forEach((d) => {
-          if (isDate) {
+          if (!isDate) {
             key = {
               min: Math.min(key.min, d.x),
               max: Math.max(key.max, d.x),
@@ -217,16 +217,6 @@ export default function Chart({
         .call(xAxis);
 
       svg.append("g").attr("class", "y axis").call(yAxis);
-
-      /* Title */
-      svg
-        .append("text")
-        .attr("x", -60)
-        .attr("y", 20)
-        .attr("transform", "rotate(-90)")
-        .attr("fill", "#000")
-        .attr("font-size", " calc(1.5vmin)")
-        .text("Total values");
     }
 
     // eslint-disable-next-line
