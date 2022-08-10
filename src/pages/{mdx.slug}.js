@@ -10,11 +10,11 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout title={frontmatter.title}>
-      <div
-        style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}
-      >
-        <h1>{frontmatter.title}</h1>
-        <p>{frontmatter.date}</p>
+      <div>
+        <center>
+          <h1>{frontmatter.title}</h1>
+          <p>{frontmatter.date}</p>
+        </center>
         <MDXRenderer localImages={frontmatter.embeddedImagesLocal}>
           {body}
         </MDXRenderer>
