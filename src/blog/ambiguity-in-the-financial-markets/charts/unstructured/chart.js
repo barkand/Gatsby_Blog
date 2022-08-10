@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import { LineChart } from "../../../../components/charts";
+import { ScatterChart } from "../../../../components/charts";
 
 const ChartUnstructured = () => (
   <StaticQuery
@@ -16,7 +16,7 @@ const ChartUnstructured = () => (
       }
     `}
     render={(data) => (
-      <LineChart data={[...data.allUnstructuredCsv.nodes]} isDate={true} />
+      <ScatterChart data={[...data.allUnstructuredCsv.nodes]} isDate={true} />
     )}
   />
 );
