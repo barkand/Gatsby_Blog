@@ -14,9 +14,7 @@ const ChartAmbiguity = () => (
         }
       }
     `}
-    render={(data) => (
-      <StackChart data={[...data.allAmbiguityCsv.nodes]} />
-    )}
+    render={(data) => <StackChart data={[...data.allAmbiguityCsv.nodes]} />}
   />
 );
 
