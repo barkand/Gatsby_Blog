@@ -145,16 +145,6 @@ export default function Chart({
         .call(xAxis);
 
       svg.append("g").attr("class", "y axis").call(yAxis);
-
-      /* Title */
-      svg
-        .append("text")
-        .attr("x", -60)
-        .attr("y", 20)
-        .attr("transform", "rotate(-90)")
-        .attr("fill", "#000")
-        .attr("font-size", " calc(1.5vmin)")
-        .text("Total values");
     }
 
     // eslint-disable-next-line
