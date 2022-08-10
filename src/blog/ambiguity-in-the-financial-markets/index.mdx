@@ -8,21 +8,23 @@ page_image_desc: "Numerous machine learning techniques employ stochastic optimiz
 optimize the expected performance or loss, such as the mean squared ..."
 embeddedImagesLocal:
   - './images/Unstructured.jpg'
-  - './images/Features.jpg'
-  - './images/Modeling.jpg'
+  - './images/Features.png'
+  - './images/Modeling.png'
   - './images/Backtest.jpg'
-  - './images/Trading.jpg'
-  - './images/Portfolio.jpg'
-  - './images/Risk.jpg'
+  - './images/Trading.png'
+  - './images/Portfolio.png'
+  - './images/Risk.png'
   - './images/Climate.jpg'
   - './images/Differential.jpg'
 ---
 
-import { Figure } from "../../components/charts";
+import { Figure, FigureHeader, FigureText } from "../../components/charts";
 import ChartAmbiguity from "./charts/ambiguity/ambiguity";
 import ChartCrypto from "./charts/crypto/crypto";
 
 ---
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
 ## Ambiguity in the financial markets
 
@@ -40,6 +42,10 @@ problem as a DRO problem.
 
 <ChartAmbiguity />
 
+</div>
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
+
 ## Unstructured Data: The main source of information
 
 Unlike structured data — which is organized in a searchable format, like
@@ -55,7 +61,11 @@ and opinions they hold a wealth of information. Yet, because this isn’t
 in a format that can be processed through traditional data analytics,
 banks have struggled to analyse it.
 
+</div>
+
 <Figure source={props.localImages[0]} caption="Unstructured Data" />
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
 ## Feature Selection
 
@@ -68,7 +78,11 @@ Razor's Law of Parsimony, the best explanation for a problem is the one
 that makes the fewest assumptions. Consequently, feature selection
 becomes an essential component of developing machine learning models.
 
-<Figure source={props.localImages[1]} caption="Feature Selection" />
+</div>
+
+<Figure source={props.localImages[1]} caption="Feature Selection" size={1200} />
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
 ## Financial Modeling
 
@@ -84,7 +98,15 @@ and boost production. Companies are able to minimize their costs,
 improve consumer experiences, and scale up their services thanks to
 machine learning.
 
-<Figure source={props.localImages[2]} caption="Financial Modeling" />
+</div>
+
+<Figure
+  source={props.localImages[2]}
+  caption="Financial Modeling"
+  size={1200}
+/>
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
 ## Backtest
 
@@ -99,7 +121,11 @@ real world. A well-executed backtest that provides unsatisfactory
 results, on the other hand, will drive traders to modify or reject the
 strategy.
 
-<Figure source={props.localImages[3]} caption="Backtest" />
+</div>
+
+<Figure source={props.localImages[3]} caption="Backtest" size={1200} />
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
 ## Trading Strategies
 
@@ -118,7 +144,15 @@ is a blind strategy, and we require rigorous checks to distinguish
 between real and random patterns. This area includes trial-and-error TA,
 candle patterns, and regression on a large number of features.
 
-<Figure source={props.localImages[4]} caption="Trading Strategies" />
+</div>
+
+<Figure
+  source={props.localImages[4]}
+  caption="Trading Strategies"
+  size={1200}
+/>
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
 ## Portfolio Optimization
 
@@ -133,7 +167,15 @@ strategy to improve out-of-sample performance and promote portfolio
 stability. Lopez de Prado was able to show encouraging findings using
 Monte Carlo simulations.
 
-<Figure source={props.localImages[5]} caption="Portfolio Optimization" />
+</div>
+
+<Figure
+  source={props.localImages[5]}
+  caption="Portfolio Optimization"
+  size={1200}
+/>
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
 ## Risk Management
 
@@ -151,7 +193,16 @@ A solid grasp of risk in its various manifestations can help investors
 comprehend the opportunities, trade-offs, and costs associated with
 various investing strategies.
 
-<Figure source={props.localImages[6]} caption="Risk Management" />
+</div>
+
+<Figure
+  source={props.localImages[6]}
+  caption="Risk Management"
+  size={1500}
+  marginTop={-350}
+/>
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
 ## Climate Risk
 
@@ -169,7 +220,11 @@ sources. Climate financing, in its narrow sense, refers to the transfer
 of funds from industrialized to developing nations in accordance with
 international agreements such as the Paris Agreement of 2016.
 
+</div>
+
 <Figure source={props.localImages[7]} caption="Climate Risk" />
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
 ## Differential Equations
 
@@ -186,7 +241,11 @@ equations orders of magnitude faster than conventional PDE solvers. And
 once trained, the new neural networks can solve an entire family of PDEs
 without additional training.
 
+</div>
+
 <Figure source={props.localImages[8]} caption="Differential Equations" />
+
+<div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
 ## Cryptocurrencies
 
@@ -203,3 +262,5 @@ value has made them attractive as trading instruments. In a limited
 capacity, they are also used for international transfers.
 
 <ChartCrypto />
+
+</div>
