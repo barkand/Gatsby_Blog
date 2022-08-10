@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 
-export const ChartCryptoCsvFragment = graphql`
-  fragment ChartCryptoCsvFragment on ChartCryptoCsv {
+export const CryptoCsvFragment = graphql`
+  fragment CryptoCsvFragment on CryptoCsv {
     id
     BTC_USD
     ETH_USD

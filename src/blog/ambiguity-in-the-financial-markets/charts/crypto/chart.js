@@ -7,15 +7,15 @@ const ChartCrypto = () => (
   <StaticQuery
     query={graphql`
       query {
-        allChartCryptoCsv {
+        allCryptoCsv {
           nodes {
-            ...ChartCryptoCsvFragment
+            ...CryptoCsvFragment
           }
         }
       }
     `}
     render={(data) => (
-      <MultilineChart data={[...data.allChartCryptoCsv.nodes]} isDate={true} />
+      <MultilineChart data={[...data.allCryptoCsv.nodes]} isDate={true} />
     )}
   />
 );

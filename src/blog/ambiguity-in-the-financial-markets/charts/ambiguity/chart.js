@@ -7,15 +7,15 @@ const ChartAmbiguity = () => (
   <StaticQuery
     query={graphql`
       query {
-        allChartAmbiguityCsv {
+        allAmbiguityCsv {
           nodes {
-            ...ChartAmbiguityCsvFragment
+            ...AmbiguityCsvFragment
           }
         }
       }
     `}
     render={(data) => (
-      <StackChart data={[...data.allChartAmbiguityCsv.nodes]} />
+      <StackChart data={[...data.allAmbiguityCsv.nodes]} />
     )}
   />
 );
