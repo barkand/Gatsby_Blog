@@ -18,9 +18,15 @@ embeddedImagesLocal:
   - './images/Differential.jpg'
 ---
 
-import { Figure, FigureHeader, FigureText } from "../../components/charts";
-import ChartAmbiguity from "./charts/ambiguity/ambiguity";
-import ChartCrypto from "./charts/crypto/crypto";
+import { Grid, Item } from "../../components/styles";
+
+import { Figure } from "../../components/charts";
+
+import ChartAmbiguity from "./charts/ambiguity/chart";
+import ChartCrypto from "./charts/crypto/chart";
+import ChartUnstructured from "./charts/unstructured/chart";
+import ChartFeatureA from "./charts/features/chartA";
+import ChartFeatureB from "./charts/features/chartB";
 
 ---
 
@@ -61,6 +67,8 @@ and opinions they hold a wealth of information. Yet, because this isn’t
 in a format that can be processed through traditional data analytics,
 banks have struggled to analyse it.
 
+<ChartUnstructured />
+
 </div>
 
 <Figure source={props.localImages[0]} caption="Unstructured Data" />
@@ -73,14 +81,21 @@ Almost seldom, when developing a machine learning model in practice, are
 all variables in the dataset usable for building the model. Adding
 redundant variables affects the model's capacity to generalize and may
 also reduce a classifier's overall accuracy. Adding ever more variables
-to a model raises the model's overall complexity. According to Occam's
+to a model raises the model's overall complexity. According to Occam's
 Razor's Law of Parsimony, the best explanation for a problem is the one
 that makes the fewest assumptions. Consequently, feature selection
 becomes an essential component of developing machine learning models.
 
 </div>
 
-<Figure source={props.localImages[1]} caption="Feature Selection" size={1200} />
+<Grid>
+  <Item>
+    <ChartFeatureA />
+  </Item>
+  <Item>
+    <ChartFeatureB />
+  </Item>
+</Grid>
 
 <div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
