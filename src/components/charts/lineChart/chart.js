@@ -13,7 +13,7 @@ export default function Chart({
 
   if (typeof window !== `undefined`) {
     size.width =
-      window.innerWidth > size.width ? size.width : window.innerWidth - 80;
+      window.innerWidth > size.width ? size.width : window.innerWidth - 120;
     size.height = size.width / 2;
   }
 
