@@ -6,14 +6,18 @@ page_image: "./images/cover.jpg"
 page_image_alt: "Ambiguity in the financial markets"
 page_image_desc: "Numerous machine learning techniques employ stochastic optimization to
 optimize the expected performance or loss, such as the mean squared ..."
-embeddedImagesLocal:
-  - './images/Unstructured.jpg'
-  - './images/Modeling.png'
+embeddedImagesLocal:  
+  - './images/Modeling1.png'
+  - './images/Modeling2.png'
+  - './images/Modeling3.png'
   - './images/Backtest.png'
   - './images/Trading1.png'
   - './images/Trading2.png'
   - './images/Trading3.png'
-  - './images/Portfolio.png'
+  - './images/Portfolio1.png'
+  - './images/Portfolio2.png'
+  - './images/Portfolio3.png'
+  - './images/Portfolio4.png'
   - './images/Risk.png'
   - './images/Climate.jpg'
   - './images/Differential.jpg'
@@ -28,6 +32,7 @@ import ChartCrypto from "./charts/crypto/chart";
 import ChartUnstructured from "./charts/unstructured/chart";
 import ChartFeatureA from "./charts/features/chartA";
 import ChartFeatureB from "./charts/features/chartB";
+import ChartDifferential from "./charts/differential/chart";
 
 ---
 
@@ -70,7 +75,7 @@ banks have struggled to analyse it.
 
 <ChartUnstructured />
 
-</div>
+</div><br />
 
 <div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
@@ -114,11 +119,31 @@ machine learning.
 
 </div>
 
-<Figure
-  source={props.localImages[1]}
-  caption="Financial Modeling"
-  size={1200}
-/>
+<Grid>
+  <Item columns={3}>
+    <Figure
+      source={props.localImages[0]}
+      caption="Financial Modeling"
+      size={380}
+    />
+  </Item>
+  <Item columns={3}>
+    <Figure
+      source={props.localImages[1]}
+      caption="Financial Modeling"
+      size={380}
+    />
+  </Item>
+  <Item columns={3}>
+    <Figure
+      source={props.localImages[2]}
+      caption="Financial Modeling"
+      size={380}
+    />
+  </Item>
+</Grid>
+
+<br />
 
 <div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
@@ -137,7 +162,9 @@ strategy.
 
 </div>
 
-<Figure source={props.localImages[2]} caption="Backtest" size={600} />
+<Figure source={props.localImages[3]} caption="Backtest" size={600} />
+
+<br />
 
 <div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
@@ -163,13 +190,6 @@ candle patterns, and regression on a large number of features.
 <Grid>
   <Item columns={3}>
     <Figure
-      source={props.localImages[3]}
-      caption="Trading Strategies"
-      size={400}
-    />
-  </Item>
-  <Item columns={3}>
-    <Figure
       source={props.localImages[4]}
       caption="Trading Strategies"
       size={400}
@@ -182,7 +202,17 @@ candle patterns, and regression on a large number of features.
       size={400}
     />
   </Item>
+  <Item columns={3}>
+    <Figure
+      source={props.localImages[6]}
+      caption="Trading Strategies"
+      size={400}
+    />
+  </Item>
 </Grid>
+
+<br />
+<br />
 
 <div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
@@ -201,11 +231,38 @@ Monte Carlo simulations.
 
 </div>
 
-<Figure
-  source={props.localImages[6]}
-  caption="Portfolio Optimization"
-  size={1200}
-/>
+<Grid>
+  <Item columns={4}>
+    <Figure
+      source={props.localImages[7]}
+      caption="Portfolio Optimization"
+      size={300}
+    />
+  </Item>
+  <Item columns={4}>
+    <Figure
+      source={props.localImages[8]}
+      caption="Portfolio Optimization"
+      size={300}
+    />
+  </Item>
+  <Item columns={4}>
+    <Figure
+      source={props.localImages[9]}
+      caption="Portfolio Optimization"
+      size={300}
+    />
+  </Item>
+  <Item columns={4}>
+    <Figure
+      source={props.localImages[10]}
+      caption="Portfolio Optimization"
+      size={300}
+    />
+  </Item>
+</Grid>
+
+<br />
 
 <div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
@@ -228,11 +285,13 @@ various investing strategies.
 </div>
 
 <Figure
-  source={props.localImages[7]}
+  source={props.localImages[11]}
   caption="Risk Management"
   size={1500}
   marginTop={-350}
 />
+
+<br />
 
 <div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
@@ -254,7 +313,7 @@ international agreements such as the Paris Agreement of 2016.
 
 </div>
 
-<Figure source={props.localImages[8]} caption="Climate Risk" />
+<Figure source={props.localImages[12]} caption="Climate Risk" />
 
 <div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
@@ -275,7 +334,10 @@ without additional training.
 
 </div>
 
-<Figure source={props.localImages[9]} caption="Differential Equations" />
+<Figure source={props.localImages[13]} caption="Differential Equations" />
+
+<br />
+<br />
 
 <div style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
 
