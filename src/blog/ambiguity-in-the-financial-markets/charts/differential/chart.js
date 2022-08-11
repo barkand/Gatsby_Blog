@@ -9,8 +9,8 @@ const ChartDifferential = () => (
       query {
         allDifferentialCsv {
           nodes {
-            id
-            value
+            x
+            y
             color
           }
         }
