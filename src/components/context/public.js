@@ -23,7 +23,9 @@ const FillDefaulePublic = () => {
 
   Default.device = typeof window !== "undefined" ? "web" : "mobile";
 
-  let localMode = localStorage.getItem("theme") ?? process.env.GATSBY_THEM_MODE;
+  let localMode;
+  if (typeof window !== "undefined") localMode = localStorage.getItem("theme");
+  localMode = localMode || process.env.GATSBY_THEM_MODE;
 
   Default.theme = {
     mode: localMode,
