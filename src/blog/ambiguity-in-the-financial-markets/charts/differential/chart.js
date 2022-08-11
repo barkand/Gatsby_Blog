@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import { ScatterChart } from "../../../../components/charts";
+import { ColoredScatterChart } from "../../../../components/charts";
 
 const ChartDifferential = () => (
   <StaticQuery
@@ -17,7 +17,7 @@ const ChartDifferential = () => (
       }
     `}
     render={(data) => (
-      <ScatterChart
+      <ColoredScatterChart
         data={[...data.allDifferentialCsv.nodes]}
         isDate={false}
         size={{ width: 300, height: 300 }}
