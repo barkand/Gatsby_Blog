@@ -5,15 +5,15 @@ import FetchCsv from "./fetchCsv";
 export default function Chart({
   data = [],
   size = { width: 600, height: 300 },
-  dotted = false,
   isDate = false,
+  dotted = false,
 }) {
   const [dataChart, setDataChart] = React.useState([]);
   const svgRef = React.useRef(null);
 
   if (typeof window !== `undefined`) {
     size.width =
-      window.innerWidth > size.width ? size.width : window.innerWidth - 110;
+      window.innerWidth > size.width ? size.width : window.innerWidth - 120;
     size.height = size.width / 2;
   }
 
@@ -26,7 +26,7 @@ export default function Chart({
     // eslint-disable-next-line
   }, [data]);
 
-  var margin = { top: 30, right: 20, bottom: 30, left: 45 };
+  var margin = { top: 30, right: 20, bottom: 30, left: 40 };
 
   var lineOpacity = "0.25";
   var lineOpacityHover = "0.85";
@@ -57,8 +57,8 @@ export default function Chart({
             };
           }
           val = {
-            min: Math.min(val.min, d.y ?? 0),
-            max: Math.max(val.max, d.y ?? 0),
+            min: Math.min(val.min, d.y),
+            max: Math.max(val.max, d.y),
           };
         });
       });
@@ -210,10 +210,18 @@ export default function Chart({
       var xAxis = d3.axisBottom(xScale).ticks(5);
       var yAxis = d3.axisLeft(yScale);
 
+      /* Draw x axis */
+      let xLineArea = size.height - margin.top;
+      /* Move up x axis when min.y is negative */
+      if (val.min < 0) {
+        xLineArea += margin.bottom;
+        xLineArea = xLineArea - xLineArea / (val.max / Math.abs(val.min));
+      }
+
       svg
         .append("g")
         .attr("class", "x axis")
-        .attr("transform", `translate(0, ${size.height - margin.top})`)
+        .attr("transform", `translate(0, ${xLineArea})`)
         .call(xAxis);
 
       svg.append("g").attr("class", "y axis").call(yAxis);
