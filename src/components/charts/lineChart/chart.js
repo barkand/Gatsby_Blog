@@ -84,7 +84,8 @@ export default function Chart({
       var area = d3
         .area()
         .x((d) => xScale(d.x))
-        .y((d) => yScale(d.y));
+        .y((d) => yScale(d.y))
+        .curve(d3.curveMonotoneX);
 
       let line = svg.append("g");
 
