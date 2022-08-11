@@ -32,7 +32,7 @@ export default function DarkModeBtn() {
       },
     });
 
-    localStorage.setItem("theme", newMode);
+    if (typeof window !== "undefined") localStorage.setItem("theme", newMode);
   };
 
   return (
