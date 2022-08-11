@@ -38,3 +38,9 @@ export function SetBackColor(mode) {
     ? process.env.GATSBY_DARK_COLOR
     : process.env.GATSBY_LIGHT_COLOR;
 }
+
+export function SetTextColor(mode) {
+  return mode === "DARK"
+    ? process.env.GATSBY_DARK_TEXT
+    : process.env.GATSBY_LIGHT_TEXT;
+}

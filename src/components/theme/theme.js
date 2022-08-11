@@ -18,6 +18,9 @@ export default function Theme({ children }) {
       background: {
         default: publicCtx.theme.background.default,
       },
+      text: {
+        primary: publicCtx.theme.text.primary,
+      },
     },
   });
 

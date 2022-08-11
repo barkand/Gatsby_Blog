@@ -1,7 +1,7 @@
 import React from "react";
 
 import { DefaultPublic } from "./default";
-import { SetColor, SetBackColor } from "../theme/setColor";
+import { SetColor, SetBackColor, SetTextColor } from "../theme/setColor";
 
 export const PublicContext = React.createContext({
   publicCtx: "",
@@ -38,6 +38,9 @@ const FillDefaulePublic = () => {
     },
     background: {
       default: SetBackColor(localMode),
+    },
+    text: {
+      primary: SetTextColor(localMode),
     },
   };
 

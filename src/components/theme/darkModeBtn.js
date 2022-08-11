@@ -6,7 +6,7 @@ import {
 } from "@mui/icons-material";
 
 import { PublicContext } from "../context/public";
-import { SetColor, SetBackColor } from "./setColor";
+import { SetColor, SetBackColor, SetTextColor } from "./setColor";
 
 export default function DarkModeBtn() {
   const { publicCtx, setPublicCtx } = React.useContext(PublicContext);
@@ -28,6 +28,9 @@ export default function DarkModeBtn() {
         },
         background: {
           default: SetBackColor(newMode),
+        },
+        text: {
+          primary: SetTextColor(newMode),
         },
       },
     });
