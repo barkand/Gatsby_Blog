@@ -106,10 +106,18 @@ export default function Chart({
       var xAxis = d3.axisBottom(xScale).ticks(5);
       var yAxis = d3.axisLeft(yScale);
 
+      /* Draw x axis */
+      let xLineArea = size.height - margin.top;
+      /* Move up x axis when min.y is negative */
+      if (val.min < 0) {
+        xLineArea += margin.bottom;
+        xLineArea = xLineArea - xLineArea / (val.max / Math.abs(val.min));
+      }
+
       svg
         .append("g")
         .attr("class", `x axis`)
-        .attr("transform", `translate(0, ${size.height - margin.top})`)
+        .attr("transform", `translate(0, ${xLineArea})`)
         .call(xAxis);
 
       svg.append("g").attr("class", `y axis`).call(yAxis);
