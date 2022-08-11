@@ -28,8 +28,6 @@ export default function Chart({
 
   var margin = { top: 30, right: 20, bottom: 30, left: 40 };
 
-  var lineOpacity = "0.4";
-
   const svgWidth = size.width + margin.left + margin.right;
   const svgHeight = size.height + margin.top + margin.bottom;
 
@@ -89,7 +87,7 @@ export default function Chart({
         .x((d) => xScale(d.x))
         .y((d) => yScale(d.y));
 
-      let lines = svg.append("g").attr("class", `line`);
+      let lines = svg.append("g").attr("class", `line1`);
 
       lines
         .selectAll(`line-group`)
@@ -102,8 +100,7 @@ export default function Chart({
         .append("path")
         .attr("class", `area`)
         .attr("d", (d) => area(d.values))
-        .style("stroke", color)
-        .style("opacity", lineOpacity);
+        .style("stroke", color);
 
       /* Add Axis into SVG */
       var xAxis = d3.axisBottom(xScale).ticks(5);
