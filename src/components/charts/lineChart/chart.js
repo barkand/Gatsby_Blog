@@ -6,7 +6,7 @@ export default function Chart({
   data = [],
   size = { width: 600, height: 300 },
   isDate = true,
-  color = "steelblue",
+  color = "steelBlue",
 }) {
   const [dataChart, setDataChart] = React.useState([]);
   const svgRef = React.useRef(null);
@@ -54,7 +54,6 @@ export default function Chart({
         });
       });
 
-      /* Scale */
       var xScale;
       if (isDate) {
         xScale = d3
@@ -87,18 +86,18 @@ export default function Chart({
         .x((d) => xScale(d.x))
         .y((d) => yScale(d.y));
 
-      let lines = svg.append("g").attr("class", `line1`);
+      let lines = svg.append("g").attr("class", "line1");
 
       lines
-        .selectAll(`line-group`)
+        .selectAll(".line-group")
         .data(dataChart)
         .enter()
         .append("g")
-        .attr("class", `line-group`)
+        .attr("class", "line-group")
 
         /* area */
         .append("path")
-        .attr("class", `area`)
+        .attr("class", "area")
         .attr("d", (d) => area(d.values))
         .style("stroke", color);
 
@@ -116,11 +115,11 @@ export default function Chart({
 
       svg
         .append("g")
-        .attr("class", `x axis`)
+        .attr("class", "x axis")
         .attr("transform", `translate(0, ${xLineArea})`)
         .call(xAxis);
 
-      svg.append("g").attr("class", `y axis`).call(yAxis);
+      svg.append("g").attr("class", "y axis").call(yAxis);
     }
 
     // eslint-disable-next-line
