@@ -7,6 +7,7 @@ export default function Chart({
   size = { width: 600, height: 300 },
   margin = { top: 30, right: 0, bottom: 30, left: 30 },
   isDate = true,
+  color = "green",
 }) {
   const [dataChart, setDataChart] = React.useState([]);
   const svgRef = React.useRef(null);
@@ -69,8 +70,6 @@ export default function Chart({
         .domain([val.min, val.max * 1.2])
         .range([size.height - margin.top, 0]);
 
-      var color = d3.scaleOrdinal(d3.schemeCategory10);
-
       /* Add SVG */
       var svg = svgEl
         .append("svg")
@@ -90,13 +89,13 @@ export default function Chart({
         .enter()
         .append("g")
         .attr("class", "circle")
+        .attr("fill", color)
 
         .append("circle")
         .data((d) => d.values)
         .attr("cx", (d) => xScale(d.x))
         .attr("cy", (d) => yScale(d.y))
-        .attr("r", 5)
-        .attr("fill", (d, i) => color(i));
+        .attr("r", 5);
 
       /* Add Axis into SVG */
       var xAxis = d3.axisBottom(xScale).ticks(5);
