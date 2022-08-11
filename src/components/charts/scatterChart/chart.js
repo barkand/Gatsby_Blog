@@ -25,7 +25,7 @@ export default function Chart({
     // eslint-disable-next-line
   }, [data]);
 
-  var margin = { top: 30, right: 50, bottom: 30, left: 20 };
+  var margin = { top: 30, right: 20, bottom: 30, left: 40 };
 
   const svgWidth = size.width + margin.left + margin.right;
   const svgHeight = size.height + margin.top + margin.bottom;
@@ -47,13 +47,12 @@ export default function Chart({
             };
           }
           val = {
-            min: Math.min(val.min, d.y ?? 0),
-            max: Math.max(val.max, d.y ?? 0),
+            min: Math.min(val.min, d.y),
+            max: Math.max(val.max, d.y),
           };
         });
       });
 
-      /* Scale */
       var xScale;
       if (isDate) {
         xScale = d3
@@ -106,10 +105,19 @@ export default function Chart({
       var xAxis = d3.axisBottom(xScale).ticks(5);
       var yAxis = d3.axisLeft(yScale);
 
+      /* Draw x axis */
+      let xLineArea = size.height - margin.top;
+      if (val.min < 0) {
+        let yd = yScale.domain();
+        xLineArea -= Math.ceil(
+          xLineArea / ((Math.abs(yd[0]) + yd[1]) / Math.abs(yd[0]))
+        );
+      }
+
       svg
         .append("g")
         .attr("class", "x axis")
-        .attr("transform", `translate(0, ${size.height - margin.top})`)
+        .attr("transform", `translate(0, ${xLineArea})`)
         .call(xAxis);
 
       svg.append("g").attr("class", "y axis").call(yAxis);

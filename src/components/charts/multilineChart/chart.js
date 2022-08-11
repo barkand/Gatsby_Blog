@@ -13,7 +13,7 @@ export default function Chart({
 
   if (typeof window !== `undefined`) {
     size.width =
-      window.innerWidth > size.width ? size.width : window.innerWidth - 120;
+      window.innerWidth > size.width ? size.width : window.innerWidth - 110;
     size.height = size.width / 2;
   }
 
@@ -214,8 +214,10 @@ export default function Chart({
       let xLineArea = size.height - margin.top;
       /* Move up x axis when min.y is negative */
       if (val.min < 0) {
-        xLineArea += margin.bottom;
-        xLineArea = xLineArea - xLineArea / (val.max / Math.abs(val.min));
+        let yd = yScale.domain();
+        xLineArea -= Math.ceil(
+          xLineArea / ((Math.abs(yd[0]) + yd[1]) / Math.abs(yd[0]))
+        );
       }
 
       svg
