@@ -12,10 +12,8 @@ export default function Chart({
   const [dataChart, setDataChart] = React.useState([]);
   const svgRef = React.useRef(null);
 
-  if (typeof window !== `undefined`) {
-    size.width =
-      window.innerWidth > size.width ? size.width : window.innerWidth - 110;
-  }
+  if (typeof window !== `undefined` && window.innerWidth <= size.width)
+    size.width = window.innerWidth - 110;
 
   React.useEffect(() => {
     if (dataChart.length === 0) {

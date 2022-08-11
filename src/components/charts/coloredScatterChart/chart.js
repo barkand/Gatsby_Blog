@@ -11,12 +11,13 @@ export default function Chart({
   const [dataChart, setDataChart] = React.useState([]);
   const svgRef = React.useRef(null);
 
-  if (typeof window !== `undefined`) {
-    if (window.innerWidth < size.width + margin.left + margin.right) {
-      size.width = window.innerWidth - margin.left - margin.right - 40;
-      margin.right = 0;
-      margin.left = size.width;
-    }
+  if (
+    typeof window !== `undefined` &&
+    window.innerWidth < size.width + margin.left + margin.right
+  ) {
+    size.width = window.innerWidth - margin.left - margin.right - 40;
+    margin.right = 0;
+    margin.left = size.width;
   }
 
   React.useEffect(() => {
