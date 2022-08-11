@@ -5,6 +5,7 @@ import FetchCsv from "./fetchCsv";
 export default function Chart({
   data = [],
   size = { width: 600, height: 300 },
+  margin = { top: 30, right: 20, bottom: 30, left: 40 },
   isDate = false,
   dotted = false,
 }) {
@@ -14,7 +15,6 @@ export default function Chart({
   if (typeof window !== `undefined`) {
     size.width =
       window.innerWidth > size.width ? size.width : window.innerWidth - 110;
-    size.height = size.width / 2;
   }
 
   React.useEffect(() => {
@@ -25,8 +25,6 @@ export default function Chart({
     }
     // eslint-disable-next-line
   }, [data]);
-
-  var margin = { top: 30, right: 20, bottom: 30, left: 40 };
 
   var lineOpacity = "0.25";
   var lineOpacityHover = "0.85";

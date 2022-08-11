@@ -5,6 +5,7 @@ import FetchCsv from "./fetchCsv";
 export default function Chart({
   data = [],
   size = { width: 600, height: 300 },
+  margin = { top: 30, right: 0, bottom: 30, left: 30 },
   isDate = true,
 }) {
   const [dataChart, setDataChart] = React.useState([]);
@@ -13,7 +14,6 @@ export default function Chart({
   if (typeof window !== `undefined`) {
     size.width =
       window.innerWidth > size.width ? size.width : window.innerWidth - 110;
-    size.height = size.width / 2;
   }
 
   React.useEffect(() => {
@@ -24,8 +24,6 @@ export default function Chart({
     }
     // eslint-disable-next-line
   }, [data]);
-
-  var margin = { top: 30, right: 20, bottom: 30, left: 40 };
 
   const svgWidth = size.width + margin.left + margin.right;
   const svgHeight = size.height + margin.top + margin.bottom;
@@ -63,7 +61,7 @@ export default function Chart({
         xScale = d3
           .scaleLinear()
           .domain([key.min, key.max * 1.2])
-          .range([0, size.width]);
+          .range([-1 * size.width, size.width]);
       }
 
       var yScale = d3
@@ -87,7 +85,6 @@ export default function Chart({
         .data(dataChart)
         .enter()
         .append("g")
-        .style("fill", (d, i) => color(i))
         .selectAll("circle")
         .data((d) => d.values)
         .enter()
@@ -99,7 +96,7 @@ export default function Chart({
         .attr("cx", (d) => xScale(d.x))
         .attr("cy", (d) => yScale(d.y))
         .attr("r", 5)
-        .attr("fill", "green");
+        .attr("fill", (d, i) => color(i));
 
       /* Add Axis into SVG */
       var xAxis = d3.axisBottom(xScale).ticks(5);
