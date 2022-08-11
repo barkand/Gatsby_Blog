@@ -86,14 +86,14 @@ export default function Chart({
         .x((d) => xScale(d.x))
         .y((d) => yScale(d.y));
 
-      let lines = svg.append("g").attr("class", "line1");
+      let line = svg.append("g");
 
-      lines
-        .selectAll(".line-group")
+      line
+        .selectAll(".line-single")
         .data(dataChart)
         .enter()
         .append("g")
-        .attr("class", "line-group")
+        .attr("class", "line-single")
 
         /* area */
         .append("path")
