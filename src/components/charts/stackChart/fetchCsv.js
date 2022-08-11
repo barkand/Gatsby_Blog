@@ -22,7 +22,7 @@ const FetchCsv = async (data) => {
   for (let i = 0; i < data.length; i++) {
     for (let j = 1; j < columns.length; j++) {
       jsonData[j - 1].values.push({
-        x: data[i]["id"],
+        x: data[i][columns[0]],
         y0: j === 1 ? 0 : data[i][columns[j - 1]],
         y1: data[i][columns[j]],
       });

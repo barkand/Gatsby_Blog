@@ -15,7 +15,9 @@ const FetchCsv = async (data, isDate) => {
   for (let i = 0; i < data.length; i++) {
     for (let j = 1; j < columns.length; j++) {
       jsonData[j - 1].values.push({
-        x: isDate ? parseTime(data[i]["id"]) : parseFloat(data[i]["id"]),
+        x: isDate
+          ? parseTime(data[i][columns[0]])
+          : parseFloat(data[i][columns[0]]),
         y: parseFloat(data[i][columns[j]]),
       });
     }
