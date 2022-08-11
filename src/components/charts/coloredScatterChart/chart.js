@@ -4,16 +4,19 @@ import FetchCsv from "./fetchCsv";
 
 export default function Chart({
   data = [],
-  size = { width: 600, height: 300 },
-  margin = { top: 30, right: 0, bottom: 30, left: 30 },
+  size = { width: 300, height: 300 },
+  margin = { top: 30, right: -50, bottom: 30, left: 300 },
   isDate = true,
 }) {
   const [dataChart, setDataChart] = React.useState([]);
   const svgRef = React.useRef(null);
 
   if (typeof window !== `undefined`) {
-    size.width =
-      window.innerWidth > size.width ? size.width : window.innerWidth - 110;
+    if (window.innerWidth < size.width + margin.left + margin.right) {
+      size.width = window.innerWidth - margin.left - margin.right - 40;
+      margin.right = 0;
+      margin.left = size.width;
+    }
   }
 
   React.useEffect(() => {
