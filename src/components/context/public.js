@@ -22,26 +22,20 @@ const FillDefaulePublic = () => {
   let Default = { ...DefaultPublic };
 
   Default.device = typeof window !== "undefined" ? "web" : "mobile";
+  console.log(localStorage.getItem("theme"));
+  let localMode = localStorage.getItem("theme") ?? process.env.GATSBY_THEM_MODE;
 
   Default.theme = {
-    mode: process.env.GATSBY_THEM_MODE,
+    mode: localMode,
     color: process.env.GATSBY_THEM_COLOR,
     primary: {
-      main: SetColor(
-        process.env.GATSBY_THEM_MODE,
-        process.env.GATSBY_THEM_COLOR,
-        "Primary"
-      ),
+      main: SetColor(localMode, process.env.GATSBY_THEM_COLOR, "Primary"),
     },
     secondary: {
-      main: SetColor(
-        process.env.GATSBY_THEM_MODE,
-        process.env.GATSBY_THEM_COLOR,
-        "Secondary"
-      ),
+      main: SetColor(localMode, process.env.GATSBY_THEM_COLOR, "Secondary"),
     },
     background: {
-      default: SetBackColor(process.env.GATSBY_THEM_MODE),
+      default: SetBackColor(localMode),
     },
   };
 

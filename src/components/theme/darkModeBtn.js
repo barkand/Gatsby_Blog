@@ -31,6 +31,8 @@ export default function DarkModeBtn() {
         },
       },
     });
+
+    localStorage.setItem("theme", newMode);
   };
 
   return (
