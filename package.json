@@ -23,6 +23,8 @@
     "@mdx-js/react": "^1.6.22",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.3",
+    "@reuters-graphics/graphics-atlas-client": "^0.5.2",
+    "@reuters-graphics/style-color": "^1.0.0",
     "d3": "^7.6.1",
     "gatsby": "^4.19.2",
     "gatsby-plugin-feed": "^4.19.0",
@@ -32,8 +34,10 @@
     "gatsby-source-filesystem": "^4.0.0",
     "gatsby-transformer-csv": "^4.19.0",
     "gatsby-transformer-sharp": "^4.0.0",
+    "lodash": "^4.17.21",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "topojson-client": "^3.1.0"
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"

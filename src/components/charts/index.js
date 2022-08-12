@@ -4,3 +4,4 @@ export { default as LineChart } from "./lineChart";
 export { default as MultilineChart } from "./multilineChart";
 export { default as ScatterChart } from "./scatterChart";
 export { default as ColoredScatterChart } from "./coloredScatterChart";
+export { default as GlobeChart } from "./globeChart";

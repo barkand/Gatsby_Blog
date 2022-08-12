@@ -19,7 +19,6 @@ embeddedImagesLocal:
   - './images/Portfolio3.png'
   - './images/Portfolio4.png'
   - './images/Risk.png'
-  - './images/Climate.png'
 ---
 
 import { Grid, Item } from "../../components/styles";
@@ -32,6 +31,7 @@ import ChartUnstructured from "./charts/unstructured/chart";
 import ChartFeatureA from "./charts/features/chartA";
 import ChartFeatureB from "./charts/features/chartB";
 import ChartDifferential from "./charts/differential/chart";
+import ChartGlobe from "./charts/globe/chart";
 
 ---
 
@@ -315,9 +315,9 @@ sources. Climate financing, in its narrow sense, refers to the transfer
 of funds from industrialized to developing nations in accordance with
 international agreements such as the Paris Agreement of 2016.
 
-</div>
+<ChartGlobe />
 
-<Figure source={props.localImages[12]} caption="Climate Risk" />
+</div>
 
 <br />
 <br />
