@@ -32,7 +32,7 @@ class Globetrotter extends ChartComponent {
       verticalAxisTilt: 15,
     },
     marker: {
-      replaceSmallPolygons: true,
+      replaceSmallPolygons: false,
       replacementThreshold: 100,
       strokeColor: "#fce587",
       fillColor: "#fce587",

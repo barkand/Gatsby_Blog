@@ -1,5 +1,5 @@
 import Chart from "./lib/chart.js";
-import LocationOptions from "./lib/utils/LocationOptions";
+// import LocationOptions from "./lib/utils/LocationOptions";
 import React from "react";
 import { base } from "@reuters-graphics/style-color/dist/categorical";
 import debounce from "lodash/debounce";
@@ -7,7 +7,7 @@ import debounce from "lodash/debounce";
 class ChartComponent extends React.Component {
   state = {
     width: "mobile",
-    location: ["iran"],
+    location: [[]],
     spin: true,
   };
 
@@ -52,9 +52,9 @@ class ChartComponent extends React.Component {
   render() {
     return (
       <div>
-          <div id="chart" ref={this.chartContainer} />
+        <div id="chart" ref={this.chartContainer} />
         <div className="chart-options">
-          <LocationOptions setState={(state) => this.setState(state)} />
+          {/* <LocationOptions setState={(state) => this.setState(state)} /> */}
         </div>
       </div>
     );
