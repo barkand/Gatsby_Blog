@@ -1,8 +1,8 @@
 {
-  "name": "RiskLab AI",
+  "name": "Gatsby Blog",
   "version": "1.0.0",
   "private": true,
-  "description": "RiskLab.AI",
+  "description": "GatsbyBlog.com",
   "keywords": [
     "finance",
     "AI"

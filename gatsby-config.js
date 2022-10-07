@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://RiskLab.ai`,
-    title: "RiskLab AI",
+    siteUrl: `https://GatsbyBlog.com`,
+    title: "Gatsby Blog",
   },
-  pathPrefix: "",
+  pathPrefix: "/Gatsby_Blog",
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
